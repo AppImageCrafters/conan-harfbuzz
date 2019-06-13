@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 
 
-from bincrafters import build_template_default
+from cpt.packager import ConanMultiPackager
 
 if __name__ == "__main__":
-
-    builder = build_template_default.get_builder()
+    builder = ConanMultiPackager(build_policy="outdated")
+    builder.add_common_builds(shared_option_name="harfbuzz:shared")
 
     builder.run()
